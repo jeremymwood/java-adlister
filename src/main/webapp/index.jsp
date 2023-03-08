@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%! int counter = 0; %>
 <% counter += 1; %>
 <html>
@@ -26,6 +27,13 @@ View the page source!
 <%--separate repositories for the backend and front end.
     The back end provides the API that the front end uses.
     Keep these things completely separate.--%>
+
+<c:if test="true">
+    <h1>Variable names should be very descriptive</h1>
+</c:if>
+<c:if test="false">
+    <h1>single letter variable names are good</h1>
+</c:if>
 
 
 </body>
