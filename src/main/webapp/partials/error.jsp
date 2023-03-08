@@ -4,5 +4,6 @@
 %>
 <h4 class="error p-2"> <%=errorMessage %></h4>
 <%
+    session.removeAttribute("errorMessage");
   }
 %>

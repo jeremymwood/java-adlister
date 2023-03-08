@@ -8,7 +8,7 @@
     <%@ include file="partials/links.jsp" %>
     <%@ include file="partials/error.jsp" %>
 </head>
-<body>
+<body class="m-2">
     <h4>Profile page</h4>
 
     Hello ${uname}

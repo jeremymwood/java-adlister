@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    //refresh examples reset to false
 
     public LoginServlet() {
         super();
@@ -41,7 +40,7 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("login.jsp"); //error
             HttpSession  session=request.getSession(true);
             session.setAttribute("errorMessage", "Login Failed");
-
+            //refresh examples reset to false
         }
         //doGet(request, response);
     }
