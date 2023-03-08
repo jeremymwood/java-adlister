@@ -35,10 +35,10 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("pword", pword);
 //            response.getWriter().append("Login SucessFully");
             response.sendRedirect("profile.jsp"); //error
-        }else{
+        } else{
             response.sendRedirect("login.jsp"); //error
             HttpSession  session=request.getSession(true);
-            session.setAttribute("errorMessage", "Login Failed ");
+            session.setAttribute("errorMessage", "Login Failed");
 
         }
         //doGet(request, response);

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Simple Page which can't be access without Login</title>
+    <title>Profile Page</title>
 </head>
 <%
     String uname = (String) session.getAttribute("uname");
