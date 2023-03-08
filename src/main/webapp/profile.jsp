@@ -5,17 +5,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Profile Page</title>
+    <%@ include file="partials/links.jsp" %>
+    <%@ include file="partials/error.jsp" %>
 </head>
-<%
-    String uname = (String) session.getAttribute("uname");
-    if (null == uname) {
-        session.setAttribute("errorMessage", "Login Failed ");
-        response.sendRedirect("login.jsp");
-    }
-%>
 <body>
-<h4>Profile page</h4>
+    <h4>Profile page</h4>
 
-Hello ${uname}
+    Hello ${uname}
+
+    <%@ include file="partials/scripts.jsp" %>
 </body>
 </html>

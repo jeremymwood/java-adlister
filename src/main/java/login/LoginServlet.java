@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    //refresh examples reset to false
+
     public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
