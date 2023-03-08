@@ -1,10 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Simple Page which can't be access without Login</title>
 </head>
+<%
+    String uname = (String) session.getAttribute("uname");
+    if (null == uname) {
+        session.setAttribute("errorMessage", "Login Failed ");
+        response.sendRedirect("login.jsp");
+    }
+%>
 <body>
-<h1>profile page</h1>
+<h4>Profile page</h4>
 
+Hello ${uname}
 </body>
 </html>

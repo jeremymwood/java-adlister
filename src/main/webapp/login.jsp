@@ -1,27 +1,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>--%>
+
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<%--%>
+<%--    String redirectURL = "login.jsp";--%>
+<%--    response.sendRedirect(redirectURL);--%>
+<%--%>--%>
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Login Page</title>
+    <%
+        String errorMessage = (String) session.getAttribute("errorMessage");
+        if (null !=errorMessage) { %>
+    <h4> <%=errorMessage %></h4>
+    <%}
+    %>
 </head>
 <body>
-<h3>Login Form</h3>
-<%
-    String profile_msg=(String)request.getAttribute("profile_msg");
-    if(profile_msg!=null){
-//        out.print(profile_msg);
-        out.print("profile not null");
-    }
-    String login_msg=(String)request.getAttribute("login_msg");
-    if(login_msg!=null){
-//        out.print(login_msg);
-        out.print("login not null");
-    }
-%>
-<br/>
-<form action="profile.jsp" method="post">
-    Email:<input type="text" name="email"/><br/><br/>
-    Password:<input type="password" name="password"/><br/><br/>
-    <input type="submit" value="login"/>
+
+<form action="LoginServlet"  method="post" >
+    Please enter your username
+    <br>
+    <input type="text" name="uname" id="uname" />
+    <br>
+    <br>
+    Please enter your password
+    <br>
+    <input type="text" name="pword" id="pword" />
+    <input type="submit" value="submit">
 </form>
 
 <%--This form should submit a POST request to /login.jsp--%>
