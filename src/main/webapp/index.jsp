@@ -19,5 +19,14 @@ View the page source!
 <%--web app: living content, interactive, more functionality--%>
 <%--web page: static content, will not depend on java to execute html--%>
 
+<%--is the proper jsp workflow to develop the desired output in html first?
+    and then construct the jsp with the desired logic?--%>
+<%--should html be more of a prototyping environment and host static mark up?--%>
+<%--can the same css and js work with the jsp?--%>
+<%--separate repositories for the backend and front end.
+    The back end provides the API that the front end uses.
+    Keep these things completely separate.--%>
+
+
 </body>
 </html>
