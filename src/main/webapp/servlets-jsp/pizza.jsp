@@ -6,48 +6,54 @@
 <%--    <%@ include file="/partials/error.jsp" %>--%>
 </head>
 <body>
-<%--        <div class="row mt-4">--%>
-<%--            <div class="col-md-6">--%>
-<%--                <h1 class="p-3">Order Pizza</h1>--%>
-<%--                <form action="PizzaOrder" class="p-3" method="post">--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="crustSelection">Select Crust</label>--%>
-<%--                        <select class="form-control" name="crustSelection" id="crustSelection">--%>
-<%--                            <option>Regular</option>--%>
-<%--                            <option>Thin</option>--%>
-<%--                            <option>Pan</option>--%>
-<%--                        </select>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Select Toppings</label>--%>
-<%--                        <div class="form-check" >--%>
-<%--                            <input class="form-check-input" type="checkbox" value="" id="pepperoni">--%>
-<%--                            <label class="form-check-label" for="pepperoni">--%>
-<%--                                Pepperoni--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-check">--%>
-<%--                            <input class="form-check-input" type="checkbox" value="" id="sausage">--%>
-<%--                            <label class="form-check-label" for="sausage">--%>
-<%--                                Sausage--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-check">--%>
-<%--                            <input class="form-check-input" type="checkbox" value="" id="bacon">--%>
-<%--                            <label class="form-check-label" for="bacon">--%>
-<%--                                Bacon--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group row">--%>
-<%--                        <div class="col-sm-10">--%>
-<%--                            <button type="submit" class="btn btn-primary">Submit</button>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </form>--%>
-<%--            </div>--%>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h1 class="p-3">Order Pizza</h1>
+                <form class="p-3" method="post">
+                    <div class="form-group">
+                        <label for="crustSelection">Select Crust</label>
+                        <select class="form-control" name="crustSelection" id="crustSelection">
+                            <option>Regular</option>
+                            <option>Thin</option>
+                            <option>Pan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Toppings</label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="toppingSelection" type="checkbox" id="pepperoni" value="pepperoni">
+                            <label class="form-check-label" for="pepperoni">
+                                Pepperoni
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="toppingSelection" type="checkbox" id="sausage" value="sausage">
+                            <label class="form-check-label" for="sausage">
+                                Sausage
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="toppingSelection" type="checkbox" id="bacon" value="bacon">
+                            <label class="form-check-label" for="bacon">
+                                Bacon
+                            </label>
+                        </div>
+                    </div>
 
-<%--            <div class="col-md-6">--%>
+                    <div class="form-group">
+                        <label for="name">Username</label>
+                        <input type="text" name="name" id="name" class="form-control mt-2 mb-1" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+                    <%--            <div class="col-md-6">--%>
 
 <%--                <div class="row mt-4">--%>
 <%--                    <div class="col-md-11 mb-4">--%>
@@ -71,12 +77,6 @@
 <%--                                                <label class="form-label" for="form7Example2">Last name</label>--%>
 <%--                                            </div>--%>
 <%--                                        </div>--%>
-<%--                                    </div>--%>
-
-<%--                                    <!-- Text input -->--%>
-<%--                                    <div class="form-outline mb-4">--%>
-<%--                                        <input type="text" id="form7Example3" class="form-control" />--%>
-<%--                                        <label class="form-label" for="form7Example3">Company name</label>--%>
 <%--                                    </div>--%>
 
 <%--                                    <!-- Text input -->--%>
@@ -116,16 +116,15 @@
 <%--                    </div>--%>
 <%--                </div>--%>
 <%--            </div>--%>
-<%--        </div>--%>
+        </div>
 
-
-<form class="p-2"  method="post">
-    <div class="form-group">
-        <label for="crustSelection">Username</label>
-        <input type="text" name="crustSelection" id="crustSelection" class="form-control mt-2 mb-1 w-25" aria-describedby="emailHelp" placeholder="Enter username">
-    </div>
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
-</form>
+<%--<form class="p-2"  method="post">--%>
+<%--    <div class="form-group">--%>
+<%--        <label for="crustSelection">Username</label>--%>
+<%--        <input type="text" name="crustSelection" id="crustSelection" class="form-control mt-2 mb-1 w-25" aria-describedby="emailHelp" placeholder="Enter username">--%>
+<%--    </div>--%>
+<%--    <button type="submit" class="btn btn-primary mt-3">Submit</button>--%>
+<%--</form>--%>
 
 <%@ include file="/partials/scripts.jsp" %>
 

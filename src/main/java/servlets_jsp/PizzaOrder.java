@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Arrays;
 
 @WebServlet(name = "PizzaOrder", urlPatterns = "/pizza-order")
 //@WebServlet(name = "PizzaOrder", urlPatterns = "/pizza-order")
@@ -27,11 +28,16 @@ public class PizzaOrder extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        String crustSelection=request.getParameter("crustSelection");
+        String crustSelection = request.getParameter("crustSelection");
+//        String toppingSelection = Arrays.toString(request.getParameterValues("toppingSelection"));
+        String toppingSelection = Arrays.toString(request.getParameterValues("toppingSelection"));
+        String name = request.getParameter("name");
 //        String toppings=request.getParameter("toppings");
 //        if(crustSelection){
             HttpSession session=request.getSession(true);
             session.setAttribute("crustSelection", crustSelection);
+            session.setAttribute("toppingSelection", toppingSelection);
+            session.setAttribute("name", name);
 ////            session.setAttribute("toppings", toppings);
 //////            response.getWriter().append("Login SucessFully");
 ////            response.sendRedirect("profile.jsp"); //error
@@ -43,7 +49,8 @@ public class PizzaOrder extends HttpServlet {
 //        }
         //doGet(request, response);
         request.getRequestDispatcher("/servlets-jsp/pizza.jsp").forward(request, response);
-        System.out.println("connected");
-//        System.out.println(crustSelection);
+        System.out.println(crustSelection);
+        System.out.println(toppingSelection);
+        System.out.println(name);
     }
 }
