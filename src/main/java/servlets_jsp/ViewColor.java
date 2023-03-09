@@ -1,6 +1,5 @@
 package servlets_jsp;
 
-import javax.print.attribute.standard.PresentationDirection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +20,7 @@ public class ViewColor extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("/servlets-jsp/viewcolor.jsp"); //error
-//        String favoriteColor = request.getParameter("favoriteColor");
         HttpSession session = request.getSession(true);
-//
         request.getRequestDispatcher("/servlets-jsp/viewcolor.jsp").forward(request, response);
-
     }
 }
