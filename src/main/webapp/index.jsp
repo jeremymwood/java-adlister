@@ -1,5 +1,6 @@
-<%@ page import="docrob.demo2.Person" %>
+<%@ page import="HelloWorld.Person" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="HelloWorld.Person" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%--<%--%>
@@ -112,6 +113,9 @@ View the page source!
 <%--<c:if test="false">--%>
 <%--    <h1>single letter variable names are good</h1>--%>
 <%--</c:if>--%>
+
+<%--url works--%>
+<%--http://localhost:8080/person?name=jeremy&age=36--%>
 
 <a href="hello-servlet">Hello Servlet</a>
 

@@ -24,7 +24,7 @@ public class PersonServlet extends HttpServlet {
         if(name == null || age == null) {
             System.out.println("Name and age cannot be null!");
             request.setAttribute("errorMessage", "Name and age cannot be null!");
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/partials/error.jsp").forward(request, response);
             return;
         }
 
@@ -50,7 +50,7 @@ public class PersonServlet extends HttpServlet {
             String errorMsg = "Error trying to make a person with name " + name + " and age " + age + "!";
             System.out.println(errorMsg);
             request.setAttribute("errorMessage", errorMsg);
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/partials/error.jsp").forward(request, response);
             return;
         }
         // add the person to the request as an attribute
