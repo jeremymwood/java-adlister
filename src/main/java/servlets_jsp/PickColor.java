@@ -16,20 +16,16 @@ public class PickColor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("/servlets-jsp/pickcolor.jsp").forward(request, response);
-
-        /**
-         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-         */
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        String favoriteColor = request.getParameter("favoriteColor");
-        HttpSession session=request.getSession(true);
-        session.setAttribute("favoriteColor", favoriteColor);
 
-        request.getRequestDispatcher("/servlets-jsp/pickcolor.jsp").forward(request, response);
+        String favoriteColor = request.getParameter("favoriteColor");
+//        HttpSession session=request.getSession(true);
+//        session.setAttribute("favoriteColor", favoriteColor);
+
+//        request.getRequestDispatcher("/servlets-jsp/pickcolor.jsp").forward(request, response);
+        response.sendRedirect("/viewcolor?color="+favoriteColor);
         System.out.println(favoriteColor);
     }
 }
