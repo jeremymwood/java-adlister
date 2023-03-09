@@ -22,7 +22,7 @@ public class PersonServlet extends HttpServlet {
         String age = request.getParameter("age");
 
         if(name == null || age == null) {
-            System.out.println("Name and age cannot be null!");
+            System.out.println(name);
             request.setAttribute("errorMessage", "Name and age cannot be null!");
             request.getRequestDispatcher("/partials/error.jsp").forward(request, response);
             return;

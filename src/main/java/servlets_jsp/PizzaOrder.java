@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "PizzaOrder", urlPatterns = "/pizza-order")
+//@WebServlet(name = "PizzaOrder", urlPatterns = "/pizza-order")
 public class PizzaOrder extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -22,7 +24,7 @@ public class PizzaOrder extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         String crustSelection=request.getParameter("crustSelection");
@@ -40,7 +42,8 @@ public class PizzaOrder extends HttpServlet {
 ////            //refresh examples reset to false
 //        }
         //doGet(request, response);
-        System.out.println(crustSelection);
-
+        request.getRequestDispatcher("/servlets-jsp/pizza.jsp").forward(request, response);
+        System.out.println("connected");
+//        System.out.println(crustSelection);
     }
 }

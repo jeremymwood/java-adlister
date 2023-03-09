@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("errorMessage", "Login Failed");
             //refresh examples reset to false
         }
-        //doGet(request, response);
+//        doGet(request, response);
     }
 
 }
