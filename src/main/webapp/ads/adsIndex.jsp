@@ -6,10 +6,10 @@
     <title>Ads DAO</title>
 </head>
 <body>
-    <h1>Here are all the products:</h1>
+    <h4>Ads</h4>
 
     <c:forEach var="ad" items="${ads}">
-            <h2>${ad.title}</h2>
+            <p>${ad.title}</p>
             <p>(Post ID: ${ad.id}, User ID: ${ad.userId})</p>
             <p>${ad.description}</p>
     </c:forEach>
