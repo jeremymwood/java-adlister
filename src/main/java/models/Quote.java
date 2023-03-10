@@ -1,6 +1,5 @@
-package beans;
+package models;
 
-import HelloWorld.Puppy;
 import lombok.*;
 
 import java.io.Serializable;

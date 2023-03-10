@@ -1,4 +1,4 @@
-package beans;
+package models;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 
-public class AlbumName implements Serializable {
+public class Genre implements Serializable {
 
     private String name;
 
