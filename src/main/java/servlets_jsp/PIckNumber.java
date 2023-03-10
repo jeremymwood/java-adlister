@@ -5,22 +5,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "ViewColor", urlPatterns = "/correct")
-public class ViewColor extends HttpServlet {
+@WebServlet(name = "PickNumber", urlPatterns = "/guess")
+public class PIckNumber extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
+//    private int answer = pickAnswer();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("userNumber", request.getParameter("number"));
-        request.getRequestDispatcher("/servlets-jsp/correct.jsp").forward(request, response);
+        request.getRequestDispatcher("/servlets-jsp/guess.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("/servlets-jsp/correct.jsp"); //error
-        HttpSession session = request.getSession(true);
-        request.getRequestDispatcher("/servlets-jsp/correct.jsp").forward(request, response);
+
+        String userNumber = request.getParameter("userNumber");
+//        try/catch for test 1-3
+//        yeilds /correct or /incorrect
+
+
+        response.sendRedirect("/correct?number="+userNumber);
+        System.out.println(userNumber);
     }
+//    pickAnswer declared here
 }
+
+
+//correct servlet will have
