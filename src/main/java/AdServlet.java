@@ -10,12 +10,21 @@ import java.util.List;
 public class AdServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
-        // Use the factory to get the dao object
         Ads adsDao = DaoFactory.getAdsDao();
-        // Use a method on the dao to get all the products
         List<Ad> ads = adsDao.all();
-        // Pass the data to the jsp
         request.setAttribute("ads", ads);
         request.getRequestDispatcher("/ads/index.jsp").forward(request, resp);
     }
+
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        Products productsDao = DaoFactory.getProductsDao();
+//        // create a new product based on the submitted data
+//        String name = request.getParameter("name");
+//        double price = Double.parseDouble(request.getParameter("price"));
+//        Product product = new Product(name, price);
+//        // persist the new product
+//        productsDao.insert(product);
+//        response.sendRedirect("/products");
+//    }
 }
