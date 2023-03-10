@@ -49,6 +49,11 @@ public class BeanTest {
 
         System.out.println(crowley);
 
+//        dao lecture notes
+//        or gateways, connect database to beans
+//        can model this with a text file?
+//        dao implements CRUD
+
 
     }
 }
