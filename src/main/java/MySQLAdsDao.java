@@ -30,7 +30,7 @@ public class MySQLAdsDao implements Ads{
             while (rs.next()) {
                 ads.add(new Ad(
                         rs.getLong("id"),
-                        rs.getLong("adUser_id"),
+//                        rs.getLong("userId"),
                         rs.getString("title"),
                         rs.getString("description")
                 ));
@@ -43,6 +43,14 @@ public class MySQLAdsDao implements Ads{
 
     @Override
     public Long insert(Ad ad) {
-        return null;
+//        return null;
+        try {
+            Statement stmt = connection.createStatement();
+            String sql = String.format("INSERT INTO ads (title, description) VALUES ('%s', '%s', %d);", ad.getTitle(), ad.getDescription(), ad.getUserId());
+            long results = stmt.executeUpdate(sql);
+            return results;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

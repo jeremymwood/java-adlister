@@ -6,6 +6,7 @@ public class DaoFactory {
         Config config = new Config();
         if (adsDao == null) {
 //            adsDao = new ListAdsDao();
+//            Config config = new Config();
             adsDao = new MySQLAdsDao(config);
         }
         return adsDao;
