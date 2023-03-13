@@ -16,7 +16,7 @@
         <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>Ad ID: ${ad.id}</p>
-<%--            <p>User ID: ${ad.userId}</p>--%>
+            <p>User ID: ${ad.adUser_id}</p>
             <p>${ad.description}</p>
         </div>
     </c:forEach>
