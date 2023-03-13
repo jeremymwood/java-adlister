@@ -18,6 +18,8 @@
             <p>Ad ID: ${ad.id}</p>
             <p>User ID: ${ad.adUser_id}</p>
             <p>${ad.description}</p>
+
+
         </div>
     </c:forEach>
 </div>
