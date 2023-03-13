@@ -26,11 +26,11 @@ public class MySQLAdsDao implements Ads{
         List<Ad> ads = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ymir_jeremy.ads");
             while (rs.next()) {
                 ads.add(new Ad(
                         rs.getLong("id"),
-                        rs.getLong("userId"),
+                        rs.getLong("adUser_id"),
                         rs.getString("title"),
                         rs.getString("description")
                 ));
