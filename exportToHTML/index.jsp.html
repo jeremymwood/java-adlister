@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>index.jsp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000000;}
+.s1 { color: #000080; font-weight: bold;}
+.s2 { color: #0000ff; font-weight: bold;}
+.s3 { color: #008000; font-weight: bold;}
+.s4 { color: #000000;}
+.s5 { color: #000000;}
+.s6 { color: #000080; font-weight: bold;}
+.s7 { color: #0000ff; font-weight: bold;}
+.s8 { color: #008000; font-weight: bold;}
+.s9 { color: #000000;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+index.jsp</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a>&lt;%@ <span class="s1">taglib </span><span class="s2">prefix</span>=&quot;<span class="s3">c</span>&quot; <span class="s2">uri</span>=&quot;<span class="s3">http://java.sun.com/jsp/jstl/core</span>&quot; %&gt;
+<a name="l2"><span class="ln">2    </span></a>&lt;%@ <span class="s1">page </span><span class="s2">contentType</span>=&quot;<span class="s3">text/html;charset=UTF-8</span>&quot; <span class="s2">language</span>=&quot;<span class="s3">java</span>&quot; %&gt;
+<a name="l3"><span class="ln">3    </span></a>&lt;<span class="s6">html</span>&gt;
+<a name="l4"><span class="ln">4    </span></a>&lt;<span class="s6">head</span>&gt;
+<a name="l5"><span class="ln">5    </span></a>    &lt;<span class="s1">jsp:include </span><span class="s2">page</span><span class="s3">=&quot;/WEB-INF/partials/head.jsp&quot;</span>&gt;
+<a name="l6"><span class="ln">6    </span></a>        &lt;<span class="s1">jsp:param </span><span class="s2">name</span><span class="s3">=&quot;title&quot; </span><span class="s2">value</span><span class="s3">=&quot;Viewing All The Ads&quot; </span>/&gt;
+<a name="l7"><span class="ln">7    </span></a>    &lt;/<span class="s1">jsp:include</span>&gt;
+<a name="l8"><span class="ln">8    </span></a>&lt;/<span class="s6">head</span>&gt;
+<a name="l9"><span class="ln">9    </span></a>&lt;<span class="s6">body</span>&gt;
+<a name="l10"><span class="ln">10   </span></a>&lt;<span class="s1">jsp:include </span><span class="s2">page</span><span class="s3">=&quot;/WEB-INF/partials/navbar.jsp&quot; </span>/&gt;
+<a name="l11"><span class="ln">11   </span></a>
+<a name="l12"><span class="ln">12   </span></a>&lt;<span class="s6">div </span><span class="s7">class</span><span class="s8">=&quot;container&quot;</span>&gt;
+<a name="l13"><span class="ln">13   </span></a>    &lt;<span class="s6">h1</span>&gt;Here Are all the ads!&lt;/<span class="s6">h1</span>&gt;
+<a name="l14"><span class="ln">14   </span></a>
+<a name="l15"><span class="ln">15   </span></a>    &lt;<span class="s1">c:forEach </span><span class="s2">var</span><span class="s3">=&quot;ad&quot; </span><span class="s2">items</span><span class="s3">=&quot;</span><span class="s1">${</span>ads<span class="s1">}</span><span class="s3">&quot;</span>&gt;
+<a name="l16"><span class="ln">16   </span></a>        &lt;<span class="s6">div </span><span class="s7">class</span><span class="s8">=&quot;col-md-6&quot;</span>&gt;
+<a name="l17"><span class="ln">17   </span></a>            &lt;<span class="s6">h2</span>&gt;<span class="s1">${</span>ad.title<span class="s1">}</span>&lt;/<span class="s6">h2</span>&gt;
+<a name="l18"><span class="ln">18   </span></a>            &lt;<span class="s6">p</span>&gt;Ad ID: <span class="s1">${</span>ad.id<span class="s1">}</span>&lt;/<span class="s6">p</span>&gt;
+<a name="l19"><span class="ln">19   </span></a>            &lt;<span class="s6">p</span>&gt;User ID: <span class="s1">${</span>ad.adUser_id<span class="s1">}</span>&lt;/<span class="s6">p</span>&gt;
+<a name="l20"><span class="ln">20   </span></a>            &lt;<span class="s6">p</span>&gt;<span class="s1">${</span>ad.description<span class="s1">}</span>&lt;/<span class="s6">p</span>&gt;
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a>        &lt;/<span class="s6">div</span>&gt;
+<a name="l24"><span class="ln">24   </span></a>    &lt;/<span class="s1">c:forEach</span>&gt;
+<a name="l25"><span class="ln">25   </span></a>&lt;/<span class="s6">div</span>&gt;
+<a name="l26"><span class="ln">26   </span></a>
+<a name="l27"><span class="ln">27   </span></a>&lt;/<span class="s6">body</span>&gt;
+<a name="l28"><span class="ln">28   </span></a>&lt;/<span class="s6">html</span>&gt;
+<a name="l29"><span class="ln">29   </span></a></pre>
+</body>
+</html>

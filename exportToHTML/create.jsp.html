@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>create.jsp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000000;}
+.s1 { color: #000080; font-weight: bold;}
+.s2 { color: #0000ff; font-weight: bold;}
+.s3 { color: #008000; font-weight: bold;}
+.s4 { color: #000000;}
+.s5 { color: #000000;}
+.s6 { color: #000080; font-weight: bold;}
+.s7 { color: #0000ff; font-weight: bold;}
+.s8 { color: #008000; font-weight: bold;}
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+create.jsp</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a>&lt;%@ <span class="s1">page </span><span class="s2">contentType</span>=&quot;<span class="s3">text/html;charset=UTF-8</span>&quot; <span class="s2">language</span>=&quot;<span class="s3">java</span>&quot; %&gt;
+<a name="l2"><span class="ln">2    </span></a>&lt;<span class="s6">html</span>&gt;
+<a name="l3"><span class="ln">3    </span></a>&lt;<span class="s6">head</span>&gt;
+<a name="l4"><span class="ln">4    </span></a>    &lt;<span class="s1">jsp:include </span><span class="s2">page</span><span class="s3">=&quot;/WEB-INF/partials/head.jsp&quot;</span>&gt;
+<a name="l5"><span class="ln">5    </span></a>        &lt;<span class="s1">jsp:param </span><span class="s2">name</span><span class="s3">=&quot;title&quot; </span><span class="s2">value</span><span class="s3">=&quot;Create a new Ad&quot; </span>/&gt;
+<a name="l6"><span class="ln">6    </span></a>    &lt;/<span class="s1">jsp:include</span>&gt;
+<a name="l7"><span class="ln">7    </span></a>&lt;/<span class="s6">head</span>&gt;
+<a name="l8"><span class="ln">8    </span></a>&lt;<span class="s6">body</span>&gt;
+<a name="l9"><span class="ln">9    </span></a>    &lt;<span class="s6">div </span><span class="s7">class</span><span class="s8">=&quot;container&quot;</span>&gt;
+<a name="l10"><span class="ln">10   </span></a>        &lt;<span class="s6">h1</span>&gt;Create a new Ad&lt;/<span class="s6">h1</span>&gt;
+<a name="l11"><span class="ln">11   </span></a>        &lt;<span class="s6">form </span><span class="s7">action</span><span class="s8">=&quot;/ads/create&quot; </span><span class="s7">method</span><span class="s8">=&quot;post&quot;</span>&gt;
+<a name="l12"><span class="ln">12   </span></a>            &lt;<span class="s6">div </span><span class="s7">class</span><span class="s8">=&quot;form-group&quot;</span>&gt;
+<a name="l13"><span class="ln">13   </span></a>                &lt;<span class="s6">label </span><span class="s7">for</span><span class="s8">=&quot;title&quot;</span>&gt;Title&lt;/<span class="s6">label</span>&gt;
+<a name="l14"><span class="ln">14   </span></a>                &lt;<span class="s6">input </span><span class="s7">id</span><span class="s8">=&quot;title&quot; </span><span class="s7">name</span><span class="s8">=&quot;title&quot; </span><span class="s7">class</span><span class="s8">=&quot;form-control&quot; </span><span class="s7">type</span><span class="s8">=&quot;text&quot;</span>&gt;
+<a name="l15"><span class="ln">15   </span></a>            &lt;/<span class="s6">div</span>&gt;
+<a name="l16"><span class="ln">16   </span></a>            &lt;<span class="s6">div </span><span class="s7">class</span><span class="s8">=&quot;form-group&quot;</span>&gt;
+<a name="l17"><span class="ln">17   </span></a>                &lt;<span class="s6">label </span><span class="s7">for</span><span class="s8">=&quot;description&quot;</span>&gt;Description&lt;/<span class="s6">label</span>&gt;
+<a name="l18"><span class="ln">18   </span></a>                &lt;<span class="s6">textarea </span><span class="s7">id</span><span class="s8">=&quot;description&quot; </span><span class="s7">name</span><span class="s8">=&quot;description&quot; </span><span class="s7">class</span><span class="s8">=&quot;form-control&quot; </span><span class="s7">type</span><span class="s8">=&quot;text&quot;</span>&gt;&lt;/<span class="s6">textarea</span>&gt;
+<a name="l19"><span class="ln">19   </span></a>            &lt;/<span class="s6">div</span>&gt;
+<a name="l20"><span class="ln">20   </span></a>            &lt;<span class="s6">input </span><span class="s7">type</span><span class="s8">=&quot;submit&quot; </span><span class="s7">class</span><span class="s8">=&quot;btn btn-block btn-primary&quot;</span>&gt;
+<a name="l21"><span class="ln">21   </span></a>        &lt;/<span class="s6">form</span>&gt;
+<a name="l22"><span class="ln">22   </span></a>    &lt;/<span class="s6">div</span>&gt;
+<a name="l23"><span class="ln">23   </span></a>&lt;/<span class="s6">body</span>&gt;
+<a name="l24"><span class="ln">24   </span></a>&lt;/<span class="s6">html</span>&gt;
+<a name="l25"><span class="ln">25   </span></a></pre>
+</body>
+</html>
