@@ -26,12 +26,23 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
     @Override
     public List<Ad> all() {
-        Statement stmt = null;
+        List<Ad> ads = new ArrayList<>();
         try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+
+            String sql = "SELECT * FROM ymir_jeremy.ads";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ads.add(new Ad(
+//                        rs.getLong("id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+//                        rs.getLong("user_id")
+                ));
+            }
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
@@ -49,21 +60,37 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
+
+        String sql = "INSERT INTO ymir_jeremy.ads (title, description) VALUES ( ?, ?);";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//            stmt.setLong(1, ad.getId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setString(3, ad.getDescription());
+//            stmt.setLong(4, ad.getUserId());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            return rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
-            + "(" + ad.getUserId() + ", "
+//            + "(" + ad.getUserId() + ", "
             + "'" + ad.getTitle() +"', "
             + "'" + ad.getDescription() + "')";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
+//            rs.getLong("id"),
             rs.getString("title"),
             rs.getString("description")
+//            rs.getLong("user_id")
         );
     }
 
