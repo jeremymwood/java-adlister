@@ -18,4 +18,8 @@ public class ShowProductsServlet extends HttpServlet {
         request.setAttribute("products", products);
         request.getRequestDispatcher("/products/productIndex.jsp").forward(request, resp);
     }
+
+    public static void main(String[] args) {
+        System.out.println(ProductDaoFactory.getProductsDao().all());
+    }
 }
