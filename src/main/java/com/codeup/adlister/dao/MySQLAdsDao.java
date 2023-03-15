@@ -37,10 +37,10 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 ads.add(new Ad(
-//                        rs.getLong("id"),
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
                         rs.getString("title"),
                         rs.getString("description")
-//                        rs.getLong("user_id")
                 ));
             }
             return createAdsFromResults(rs);
@@ -61,13 +61,13 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
 
-        String sql = "INSERT INTO ymir_jeremy.ads (title, description) VALUES ( ?, ?);";
+        String sql = "INSERT INTO ymir_jeremy.ads (id, user_id, title, description) VALUES ( ?, ?, ?, ?);";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//            stmt.setLong(1, ad.getId());
-            stmt.setString(2, ad.getTitle());
-            stmt.setString(3, ad.getDescription());
-//            stmt.setLong(4, ad.getUserId());
+            stmt.setLong(1, ad.getId());
+            stmt.setLong(2, ad.getuser_id());
+            stmt.setString(3, ad.getTitle());
+            stmt.setString(4, ad.getDescription());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -79,18 +79,19 @@ public class MySQLAdsDao implements Ads {
     }
 
     private String createInsertQuery(Ad ad) {
-        return "INSERT INTO ads(user_id, title, description) VALUES "
-//            + "(" + ad.getUserId() + ", "
+        return "INSERT INTO ads(id, user_id, title, description) VALUES "
+            "(" + ad.getId() + ", "
+            + "(" + ad.getuser_id() + ", "
             + "'" + ad.getTitle() +"', "
             + "'" + ad.getDescription() + "')";
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-//            rs.getLong("id"),
+            rs.getLong("id"),
+            rs.getLong("user_id"),
             rs.getString("title"),
             rs.getString("description")
-//            rs.getLong("user_id")
         );
     }
 
