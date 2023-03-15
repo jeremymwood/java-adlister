@@ -3,9 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,23 +23,12 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     @Override
     public List<Ad> all() {
-        List<Ad> ads = new ArrayList<>();
+        Statement stmt = null;
         try {
-
-            String sql = "SELECT * FROM ymir_jeremy.ads";
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                ads.add(new Ad(
-                        rs.getLong("id"),
-                        rs.getLong("adUser_id"),
-                        rs.getString("title"),
-                        rs.getString("description")
-                ));
-            }
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM ymir_jeremy.ads");
             return createAdsFromResults(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
@@ -60,43 +46,26 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
-
-        String sql = "INSERT INTO ymir_jeremy.ads (id, adUser_id, title, description) VALUES ( ?, ?, ?, ?);";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getId());
-            stmt.setLong(2, ad.getadUser_id());
-            stmt.setString(3, ad.getTitle());
-            stmt.setString(4, ad.getDescription());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
-    private String createInsertQuery(Ad ad) {
+    private String createInsertQuery(Ad ad) throws SQLException {
 
-//        String sql = "SELECT * FROM products WHERE name LIKE ?";
-//        String searchTermWithWildcards = "%" + searchTerm + "%";
-//
-//        PreparedStatement stmt = connection.prepareStatement(sql);
-//        stmt.setString(1, searchTermWithWildcards);
-//
-//        ResultSet rs = stmt.executeQuery();
-//        while(rs.next()) {
-//            // do something with the search results
-//        }
-//
-//
-        return "INSERT INTO ads(id, adUser_id, title, description) VALUES "
-            "(" + ad.getId() + ", "
-            + "(" + ad.getadUser_id() + ", "
-            + "'" + ad.getTitle() +"', "
-            + "'" + ad.getDescription() + "')";
+        String sql = "INSERT INTO ymir_jeremy.ads(adUser_id, title, description) VALUES (?, ?, ?)";
+//        String adUserWithWildcards = "%" + ad.getadUser_id() + "%";
+//        String titleWithWildcards = "%" + ad.getTitle() + "%";
+//        String descriptionWithWildcards = "%" + ad.getDescription() + "%";
+
+        PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        stmt.setLong(1, ad.getadUser_id());
+//        stmt.setLong(1, 1);
+        stmt.setString(2, ad.getTitle());
+        stmt.setString(3, ad.getDescription());
+
+        stmt.executeUpdate();
+
+        ResultSet generatedIdResultSet = stmt.getGeneratedKeys();
+
+        return String.valueOf(generatedIdResultSet);
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -116,5 +85,3 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
-
-
