@@ -10,7 +10,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
-        <h1 class="" >Please Log In</h1>
+        <h1>Log In</h1>
         <form action="/login" method="POST">
             <div class="form-group pb-3">
                 <label for="username">Username</label>
@@ -20,8 +20,10 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
-            <input type="submit" class="btn btn-primary btn-block" value="Register">
+            <input type="submit" class="btn btn-primary btn-block w-100 mb-3" value="Log In">
+            <button class="btn btn-primary btn-block w-100" href="../register">
+                Register
+            </button>
         </form>
     </div>
 </body>

@@ -6,14 +6,15 @@
     </jsp:include>
 </head>
 <body>
-    <div class="container">
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <div class="container w-25">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
