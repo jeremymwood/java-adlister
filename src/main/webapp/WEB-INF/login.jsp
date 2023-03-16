@@ -7,7 +7,6 @@
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
 </head>
-<script>alert("Hello! I am an alert box!!");</script>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container w-25">
