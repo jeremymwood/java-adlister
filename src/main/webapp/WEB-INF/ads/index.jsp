@@ -11,7 +11,7 @@
 
 <div class="container w-90">
     <h1 class="mb-5">Here Are all the ads!</h1>
-    <div class="row row-cols-2">
+    <div class="row row-cols-4">
         <c:forEach var="ad" items="${ads}">
             <div class="col mb-3">
                 <h2 class="mb-1">${ad.title}</h2>
