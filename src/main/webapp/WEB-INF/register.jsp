@@ -7,22 +7,26 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-    <div class="container">
-        <h1>Please Log In</h1>
+    <div class="container w-25">
+        <h1>Register</h1>
         <form action="/register" method="POST">
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <label for="email">E-mail</label>
                 <input id="email" name="email" class="form-control" type="text">
             </div>
-            <div class="form-group">
+            <div class="form-group pb-3">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+<%--            <div class="form-group pb-3">--%>
+<%--                <label for="confirm_password">Confirm password</label>--%>
+<%--                <input id="confirm_password" name="confirm_password" class="form-control" type="password">--%>
+<%--            </div>--%>
+            <input type="submit" class="btn btn-primary btn-block" value="Register">
         </form>
     </div>
 </body>

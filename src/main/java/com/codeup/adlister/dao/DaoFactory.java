@@ -20,11 +20,4 @@ public class DaoFactory {
         }
         return usersDao;
     }
-
-    public static void main(String[] args) {
-        Users doa = DaoFactory.getUsersDao();
-        System.out.println(doa.findByUsername("jeremy").getEmail());
-        System.out.println(doa.findByUsername("jeremy").getPassword());
-        System.out.println(doa.findByUsername("jeremy").getId());
-    }
 }

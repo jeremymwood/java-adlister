@@ -34,21 +34,24 @@ public User findByUsername(String username) {
 
     @Override
     public Long insert(User user) {
-        String sqlUser = "INSERT INTO ymir_jeremy.adUsers(username, email, password) VALUES (?, ?, ?)";
-
         try {
-            PreparedStatement stmt = connection.prepareStatement(sqlUser, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getEmail());
-            stmt.setString(3, user.getPassword());
+            String sql = "INSERT INTO adUsers(id, username, email, password) VALUES (?, ?, ?, ?) ";
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setLong(1, user.getId());
+            stmt.setString(2, user.getUsername());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getPassword());
+
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
-        }
 
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new user.", e);
+        }
     }
 
 
