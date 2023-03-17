@@ -18,12 +18,16 @@ public class CreateAdServlet extends HttpServlet {
                 .forward(request, response);
     }
 
+//    Prom dress, $200 OBO
+//    Budget conscious option.
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        long sess_id = user.getId();
 
         Ad ad = new Ad(
-                1,
+                12,
+//                sess_id,
                 request.getParameter("title"),
                 request.getParameter("description")
         );
@@ -35,5 +39,8 @@ public class CreateAdServlet extends HttpServlet {
             DaoFactory.getAdsDao().insert(ad);
             response.sendRedirect("/ads");
         }
+
+        System.out.println(ad.getadUser_id());
     }
+
 }
