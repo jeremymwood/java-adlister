@@ -1,4 +1,5 @@
 package com.codeup.adlister.dao;
+import com.codeup.adlister.Util.Password;
 import com.mysql.cj.jdbc.Driver;
 import com.codeup.adlister.models.User;
 
@@ -38,10 +39,12 @@ public User findByUsername(String username) {
             String sql = "INSERT INTO adUsers(id, username, email, password) VALUES (?, ?, ?, ?) ";
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
+            String hashedPassword = Password.hash(user.getPassword());
+
             stmt.setLong(1, user.getId());
             stmt.setString(2, user.getUsername());
             stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
+            stmt.setString(4, hashedPassword);
 
 
             stmt.executeUpdate();

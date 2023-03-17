@@ -14,33 +14,30 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
-                .forward(request, response);
+//        if (request.getSession().getAttribute("user") == null){
+//            response.sendRedirect("/login");
+//            return;
+//        }
+        request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
     }
 
 //    Prom dress, $200 OBO
 //    Budget conscious option.
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
-        User user = DaoFactory.getUsersDao().findByUsername(username);
-        long sess_id = user.getId();
-
-        Ad ad = new Ad(
-                12,
-//                sess_id,
-                request.getParameter("title"),
-                request.getParameter("description")
-        );
-
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/ads/create");
-        } else {
-//            ad.setadUser_id(user.getId());
-            DaoFactory.getAdsDao().insert(ad);
-            response.sendRedirect("/ads");
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null){
+            response.sendRedirect("/login");
+            return;
         }
 
-        System.out.println(ad.getadUser_id());
-    }
-
+        Ad ad = new Ad(
+//                12,
+            user.getId(),
+            request.getParameter("title"),
+            request.getParameter("description")
+        );
+//            ad.setadUser_id(user.getId());
+        DaoFactory.getAdsDao().insert(ad);
+        response.sendRedirect("/ads");
+        }
 }
